@@ -772,6 +772,7 @@ var tokenMap = map[string]int{
 	"YEAR":                     yearType,
 	"ZEROFILL":                 zerofill,
 	"WAIT":                     wait,
+	"HS_BUILDDB":               hsBuildDb,
 }
 
 // See https://dev.mysql.com/doc/refman/5.7/en/function-resolution.html for details

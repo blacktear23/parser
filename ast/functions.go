@@ -721,6 +721,8 @@ const (
 	AggFuncApproxCountDistinct = "approx_count_distinct"
 	// AggFuncApproxPercentile is the name of approx_percentile function.
 	AggFuncApproxPercentile = "approx_percentile"
+	// AggFuncHSBuildDB is hyperscan build db function.
+	AggFuncHSBuildDB = "hs_builddb"
 )
 
 // AggregateFuncExpr represents aggregate function expression.

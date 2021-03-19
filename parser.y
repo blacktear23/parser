@@ -679,6 +679,7 @@ import (
 	leader                "LEADER"
 	learner               "LEARNER"
 	voter                 "VOTER"
+	hsBuildDb             "HS_BUILDDB"
 
 	/* The following tokens belong to TiDBKeyword. Notice: make sure these tokens are contained in TiDBKeyword. */
 	admin                      "ADMIN"
@@ -5878,6 +5879,7 @@ NotKeywordToken:
 |	"LEADER"
 |	"LEARNER"
 |	"VOTER"
+|	"HS_BUILDDB"
 
 /************************************************************************************
  *
@@ -6932,6 +6934,10 @@ SumExpr:
 		} else {
 			$$ = &ast.AggregateFuncExpr{F: $1, Args: []ast.ExprNode{$4}, Distinct: $3.(bool)}
 		}
+	}
+|	"HS_BUILDDB" '(' Expression ')'
+	{
+		$$ = &ast.AggregateFuncExpr{F: ast.AggFuncHSBuildDB, Args: []ast.ExprNode{$3}}
 	}
 |	builtinApproxCountDistinct '(' ExpressionList ')'
 	{
