@@ -6935,9 +6935,9 @@ SumExpr:
 			$$ = &ast.AggregateFuncExpr{F: $1, Args: []ast.ExprNode{$4}, Distinct: $3.(bool)}
 		}
 	}
-|	"HS_BUILDDB" '(' Expression ',' Expression ')'
+|	"HS_BUILDDB" '(' ExpressionList ')'
 	{
-		$$ = &ast.AggregateFuncExpr{F: ast.AggFuncHSBuildDB, Args: []ast.ExprNode{$3, $5}}
+		$$ = &ast.AggregateFuncExpr{F: ast.AggFuncHSBuildDB, Args: $3.([]ast.ExprNode)}
 	}
 |	builtinApproxCountDistinct '(' ExpressionList ')'
 	{
